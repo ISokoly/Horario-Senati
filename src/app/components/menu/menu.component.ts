@@ -15,23 +15,21 @@ export type MenuItem={
   imports: [MatListModule,MatIconModule,RouterLink,RouterLinkActive],
   template: `
   <div class="sidenav-header">
-    <img src="icon.gif" alt="" [width]="profilePicSize()">
+    <img [src]="profilePicSize()==='200'?'senati.png':'senatiPeque.jpg'" alt="" [width]="profilePicSize()">
     <div class="header-text" [class.hide-header-text]="sideNavCollpsed()">
-      <h2>Jhonatan</h2>
-      <p>Ing</p>
+      <h2><br></h2>
+      <p> </p>
     </div>
   </div>
   <mat-nav-list>
     @for (item of menuItems(); track $index) {
       <a  class="menu-item">
       <mat-list-item routerLinkActive ="selected-menu-item" 
-      #rla="routerLinkActive" routerLink={{item.route}}
-      [activated]="rla.isActive" >
+      #rla="routerLinkActive" routerLink={{item.route}}>
         <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
         @if (!sideNavCollpsed()) {
-          <span matListItemTitle>{{item.label}}</span>
+          <span class="title" matListItemTitle>{{item.label}}</span>
         }
-        
       </mat-list-item>
       </a>
     }
@@ -47,7 +45,6 @@ export type MenuItem={
       text-align:center;
 
       >img{
-        border-radius:100%;
         object-fit:cover;
       }
 
@@ -63,20 +60,26 @@ export type MenuItem={
         }
       }
     }
+
     .hide-header-text{
       opacity:0;
       height:0px !important ;
     }
-    .selected-menu-item{
-      
-      
-      
-    }
+
     .menu-item{
       border-right: 50px solid;
       border-color:rgba(48, 17, 187, 0);
       
     }
+    .selected-menu-item {
+      mat-icon {
+        color: var(--azul); 
+      }
+      .title {
+        font-weight: bold;
+        color: var(--azul); 
+  }
+}
     
   `
 })
@@ -89,18 +92,33 @@ export class MenuComponent {
 
   menuItems=signal<MenuItem[]>([
     {
-      icon:'dashboard',
-      label:'Dashboard',
-      route:'dashboard'
+      icon:'class',
+      label:'Carrera',
+      route:'carreras'
     },
     {
-      icon:'video_library',
-      label:'Señales',
-      route:'senales'
+      icon:'account_balance',
+      label:'Aulas',
+      route:'aulas'
     },
+    {
+      icon:'group',
+      label:'Grupos',
+      route:'grupos'
+    },
+    {
+      icon:'school',
+      label:'Instructores',
+      route:'instructores'
+    },
+    {
+      icon:'date_range',
+      label:'Horarios',
+      route:'horarios'
+    }
   ])
 
   profilePicSize = computed(()=>
-    this.sideNavCollpsed()?'32':'100'
+    this.sideNavCollpsed()?'32':'200'
   );
 }

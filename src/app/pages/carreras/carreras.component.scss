@@ -1,0 +1,27 @@
+label{
+    font-size: 25px;
+}
+mat-divider{
+    margin-top: 8px;
+}
+.custom-button {
+    background-color: #0a39e4; /* Color de fondo */
+    color: white; /* Color del texto */
+    border: 2px solid #0a39e4; /* Borde de 2px con el mismo color que el fondo */
+    border-radius: 8px; /* Borde redondeado */
+    padding: 8px 15px; /* Relleno del botón */
+    font-size: 16px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor cuando pasas sobre el botón */
+    transition: background-color 0.3s, border-color 0.3s; /* Transición suave */
+    margin: 10px 0px;
+  }
+  
+  .custom-button:hover {
+    background-color: #0837b3; /* Color de fondo cuando el mouse pasa por encima */
+    border-color: #0837b3; /* Cambia el color del borde en hover */
+  }
+  
+  .custom-button:focus {
+    outline: none; /* Elimina el contorno del botón cuando está enfocado */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Añade sombra cuando está enfocado */
+  }

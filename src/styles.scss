@@ -32,13 +32,24 @@ html, body { height: 100%; }
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
- 
+  padding: 0px
 };
 
 
 
 :root {
+
+  @include mat.divider-overrides((
+    color: #0a39e4 ,
+    width:2px
+  ));
   @include mat.list-overrides((
     active-indicator-shape:none,
   ));
+  --azul: #0a39e4;
 }
+.mat-drawer-inner-container{
+  overflow: hidden !important;
+}
+
+
