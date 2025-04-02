@@ -2,6 +2,8 @@
 @use '@angular/material' as mat;
 @use './style/theme-colors';
 
+*{--azul: #0a39e4;}
+
 @include mat.app-background();
 
 html{
@@ -46,7 +48,6 @@ body {
   @include mat.list-overrides((
     active-indicator-shape:none,
   ));
-  --azul: #0a39e4;
 }
 .mat-drawer-inner-container{
   overflow: hidden !important;
