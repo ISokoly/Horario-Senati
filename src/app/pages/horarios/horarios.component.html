@@ -1,1 +1,30 @@
-<label>Horarios</label><mat-divider> </mat-divider>
+<label>Horarios</label>
+<mat-divider> </mat-divider>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+  
+    <!-- Loop over the headers to generate columns dynamically -->
+    <ng-container *ngFor="let item of headers">
+      <ng-container matColumnDef="{{item}}">
+        <th mat-header-cell *matHeaderCellDef> 
+          {{item.charAt(0).toUpperCase() + item.slice(1)}}
+        </th>
+        <td mat-cell *matCellDef="let element">
+  
+          <ng-container *ngIf="item === 'opciones'">
+            <ng-container *ngFor="let option of element[item]">
+              <button mat-button>{{option}}</button>
+            </ng-container>
+          </ng-container>
+  
+          <!-- Default rendering for other columns -->
+          <ng-container *ngIf="item !== 'semestre' && item !== 'opciones'">
+            {{element[item]}}
+          </ng-container>
+  
+        </td>
+      </ng-container>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="headers"></tr>
+    <tr mat-row *matRowDef="let row; columns: headers;"></tr>
+  </table>

@@ -26,6 +26,7 @@ export const routes: Routes = [
     path:'view',
     component:ViewComponent,
     children:[
+      { path: '', redirectTo: 'carreras', pathMatch: 'full' },
       {
         path:'carreras',
         component:CarrerasComponent
