@@ -29,4 +29,18 @@ const ELEMENT_DATA: Instructor[] = [
 export class InstructorComponent {
   headers:string[]=['id','dni', 'name','opciones']
   dataSource = ELEMENT_DATA;
+  intructor: string = '';
+  modal:boolean=false
+  
+  dialogs() {
+    this.modal=!this.modal
+  }
+
+  submitCareer() {
+    if (this.intructor) {
+      const modal = document.getElementById('modal-overlay');
+      if (modal) modal.style.display = 'none'; // Close the modal
+      alert(`Carrera agregada: ${this.intructor}`);
+    }
+  }
 }

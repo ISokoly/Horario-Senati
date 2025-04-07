@@ -32,8 +32,6 @@ export class AulasComponent {
   aulasName: string = '';
   modal:boolean=false
 
-  
-
   dialogs() {
     // const modal = document.getElementById('modal-overlay');
     // if (modal) modal.style.display = 'none'; // Close the modal
@@ -47,8 +45,4 @@ export class AulasComponent {
       alert(`Carrera agregada: ${this.aulasName}`);
     }
   }
-  // openModal() {
-  //   const modal = document.getElementById('modal-overlay');
-  //   if (modal) modal.style.display = 'flex'; // Open the modal
-  // }
 }
